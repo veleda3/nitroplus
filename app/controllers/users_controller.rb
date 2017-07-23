@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
-  # def index
-  #   @users = User.all
-  # end
 
   # GET /users/1
   # GET /users/1.json
@@ -48,15 +43,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  # def logout
-  #   session.clear
-  #   respond_to do |format|
-  #     format.html { redirect_to '/', notice: 'User was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
 
 
   private
