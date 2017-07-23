@@ -1,14 +1,465 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nitroplus</title>
     <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nitroplus</title>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <body>
+        <div id="preloader">
+            <div id="preloader-inner"></div>
+        </div><!--/preloader-->
+        <%= render partial: 'partials/top_bar' %>
+        
+        <%= render partial: 'partials/navbar' %>
+        <section id="slider-sec" class="slider-reg">
+            <div class="main-flex-slider">
+                <ul class="slides">
+                    <li>
+                        <figure>
+                            <img src="img-1.jpg" class="img-fluid" alt="slider-img-1">
+                            <figcaption class="slider-overlay ">
+                                <div class="slider-text animated fadeInDown">
+                                    <h1>Easy customization theme</h1>
+                                    <p>
+                                        Bizwrap theme comes with easy customization
+                                    </p>
+                                    <p class="slide-btn"><a href="#" class="btn btn-white btn-lg">Purchase Now</a></p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="img-2.jpg" class="img-fluid" alt="slider-img-1">
+                            <figcaption class="slider-overlay">
+                                <div class="slider-text">
+                                    <h1>clean and modern design</h1>
+                                    <p>
+                                        Bizwrap is a Useful theme that you can use for your Business.
+                                    </p>
+                                    <p class="slide-btn"><a href="#" class="btn btn-white btn-lg">View Portfolio</a></p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="img-3.jpg" class="img-fluid" alt="slider-img-1">
+                            <figcaption class="slider-overlay">
+                                <div class="slider-text">
+                                    <h1>Perfect for Small Projects</h1>
+                                    <p>
+                                        Bizwrap mainly design for small business projects.
+                                    </p>
+                                    <p class="slide-btn"><a href="#" class="btn btn-white btn-lg">Contact us</a></p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </section><!--main flex slider end-->
+        <div class="space-50"></div>
+        <div class="container">
+            <div class="row intro-row">
+                <div class="col-md-12 text-center wow animated fadeInUp">
+                    <h2>Bizwrap built for Minimal business Projects</h2>
+                    <h3 class="subtitle">With Clean and Modern Design</h3>
+                </div>
+                <div class="space-70"></div>
+                <div class=" col-md-4">
+                    <div class="services-box">
+                        <i class="ion-laptop"></i>
+                        <h1>Responsive design</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisl risus, porta sit amet dui eget...
+                        </p>
+                    </div>
+                </div><!--services box-->
+                <div class=" col-md-4">
+                    <div class="services-box">
+                        <i class="ion-ios-color-wand-outline"></i>
+                        <h1>Creative ideas</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisl risus, porta sit amet dui eget...
+                        </p>
+                    </div>
+                </div><!--services box-->
+                <div class="col-md-4">
+                    <div class="services-box">
+                        <i class="ion-social-twitter-outline"></i>
+                        <h1>Bootstrap4</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisl risus, porta sit amet dui eget...
+                        </p>
+                    </div>
+                </div><!--services box-->
+            </div><!--row end-->
+            <div class="space-30"></div>
+            <div class="text-center">
+                <a class="modal-video theme-btn-color-outline btn-radius btn" href="https://www.youtube.com/watch?v=cctFcl5EFYk">Watch Video <i class="ion-play"></i></a>
+            </div>
+        </div><!--intro with services end-->
+        <div class="space-70"></div><div class="space-30"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="heading-sec">Recent work</h3>
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div class="col-md-4 col-sm-6 margin-btm-40">
+                    <div class="portfolio-sec">
+                        <div class="portfolio-thumnail">
+                            <a href="portfolio-single.html">
+                                <img src="work/work-1.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="portfolio-desc text-center">
+                            <h4 class="portfolio-post-title">portfolio item title here</h4>
+                            <span class="portfolio-post-cat">Branding</span>
+                            <h4><a href="portfolio-single.html" class="btn theme-btn-default btn-lg">More detail</a></h4>
+                        </div>
+                    </div>
+                </div><!--portfolio item -->
+                <div class="col-md-4 col-sm-6 margin-btm-40">
+                    <div class="portfolio-sec">
+                        <div class="portfolio-thumnail">
+                            <a href="portfolio-single.html">
+                                <img src="work/work-2.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="portfolio-desc text-center">
+                            <h4 class="portfolio-post-title">portfolio item title here</h4>
+                            <span class="portfolio-post-cat">Branding</span>
+                            <h4><a href="portfolio-single.html" class="btn theme-btn-default btn-lg">More detail</a></h4>
+                        </div>
+                    </div>
+                </div><!--portfolio item -->
+                <div class="col-md-4 col-sm-6 margin-btm-40">
+                    <div class="portfolio-sec">
+                        <div class="portfolio-thumnail">
+                            <a href="portfolio-single.html">
+                                <img src="work/work-3.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="portfolio-desc text-center">
+                            <h4 class="portfolio-post-title">portfolio item title here</h4>
+                            <span class="portfolio-post-cat">Branding</span>
+                            <h4><a href="portfolio-single.html" class="btn theme-btn-default btn-lg">More detail</a></h4>
+                        </div>
+                    </div>
+                </div><!--portfolio item -->
+
+
+                <div class="col-md-4 col-sm-6 margin-btm-40">
+                    <div class="portfolio-sec">
+                        <div class="portfolio-thumnail">
+                            <a href="portfolio-single.html">
+                                <img src="work/work-4.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="portfolio-desc text-center">
+                            <h4 class="portfolio-post-title">portfolio item title here</h4>
+                            <span class="portfolio-post-cat">Branding</span>
+                            <h4><a href="portfolio-single.html" class="btn theme-btn-default btn-lg">More detail</a></h4>
+                        </div>
+                    </div>
+                </div><!--portfolio item -->
+                <div class="col-md-4 col-sm-6 margin-btm-40">
+                    <div class="portfolio-sec">
+                        <div class="portfolio-thumnail">
+                            <a href="portfolio-single.html">
+                                <img src="work/work-5.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="portfolio-desc text-center">
+                            <h4 class="portfolio-post-title">portfolio item title here</h4>
+                            <span class="portfolio-post-cat">Branding</span>
+                            <h4><a href="portfolio-single.html" class="btn theme-btn-default btn-lg">More detail</a></h4>
+                        </div>
+                    </div>
+                </div><!--portfolio item -->
+                <div class="col-md-4 col-sm-6 margin-btm-40">
+                    <div class="portfolio-sec">
+                        <div class="portfolio-thumnail">
+                            <a href="portfolio-single.html">
+                                <img src="work/work-6.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="portfolio-desc text-center">
+                            <h4 class="portfolio-post-title">portfolio item title here</h4>
+                            <span class="portfolio-post-cat">Branding</span>
+                            <h4><a href="portfolio-single.html" class="btn theme-btn-default btn-lg">More detail</a></h4>
+                        </div>
+                    </div>
+                </div><!--portfolio item -->
+            </div><!--row portfolio item-->
+        </div><!--recent work container end-->
+        <div class="space-70"></div>
+        <section id="content-region-1" class="padding-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 features">
+                        <h3>Our services</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ipsum mauris. Fusce condimentum mollis eros vitae facilisis. Praesent gravida dignissim felis, id sagittis mauris rutrum non. Nullam pretium id sem ut hendrerit.
+                        </p>
+                        <div class="space-30"></div>
+                        <div class="row">
+                            <div class="col-md-3 services-icon">
+                                <i class="ion-laptop"></i>
+                            </div>
+                            <div class="col-md-9 services-text">
+                                <h4 class="heading-mini">100% Responsive layout</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ipsum mauris. Fusce condimentum mollis eros vitae facilisis.
+                                </p>
+                            </div>
+                        </div><!--services list-->
+                        <div class="space-30"></div>
+                        <div class="row">
+                            <div class="col-md-3 services-icon">
+                                <i class="ion-ios-barcode-outline"></i>
+                            </div>
+                            <div class="col-md-9 services-text">
+                                <h4 class="heading-mini">Clean code</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ipsum mauris. Fusce condimentum mollis eros vitae facilisis.
+                                </p>
+                            </div>
+                        </div><!--services list-->
+                        <div class="space-30"></div>
+                        <div class="row">
+                            <div class="col-md-3 services-icon">
+                                <i class="ion-compose"></i>
+                            </div>
+                            <div class="col-md-9 services-text">
+                                <h4 class="heading-mini">Easy customization</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ipsum mauris. Fusce condimentum mollis eros vitae facilisis.
+                                </p>
+                            </div>
+                        </div><!--services list-->
+
+
+                    </div>
+                    <div class="col-md-5">
+                        <img src="ipad.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+            </div><!--container-->
+        </section><!--features end-->
+        <section id="content-region-2" class="padding-40 parallax-1">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="testimonials">
+                            <ul class="slides">
+                                <li>
+                                    <p class="testi-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus massa in mauris rhoncus aliquam. Suspendisse nec velit vestibulum, euismod quam id, pellentesque elit. Ut a interdum metus, vel dictum nibh."<p>
+                                        <span class="testi-person">John Doe - company inc  </span>
+                                </li>
+                                <li>
+                                    <p class="testi-text">"Sed fringilla sem sed massa ullamcorper, vitae rutrum justo sodales. Cras sed iaculis enim. Sed aliquet viverra nisl a tristique. Curabitur vitae mauris sem. Pellentesque iaculis nibh leo, mattis aliquet arcu tincidunt at."<p>
+                                        <span class="testi-person">John terry - company inc  </span>
+                                </li>
+                                <li>
+                                    <p class="testi-text">"Cras adipiscing odio nunc, non laoreet urna suscipit ac. Pellentesque congue egestas risus viverra pharetra. Morbi pretium orci magna, vitae mattis nisl viverra eleifend. Vestibulum euismod erat non ligula hendrerit tincidunt."<p>
+                                        <span class="testi-person">victoria - company inc </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section> <!--testimonials section end here-->
+        <div class="space-70"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="heading-sec">Latest news</h3>
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div class="col-md-4 margin-btm-20">
+                    <div class="news-sec">
+                        <div class="news-thumnail">
+                            <a href="blog-post.html">
+                                <img src="blog/blog-1.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="news-desc">
+                            <h3 class="blog-post-title"><a href="blog-post.html" class="hover-color">Lorem ipsum dollor sit amet</a></h3>
+                            <span class="news-post-cat">On 26 may 2014 | sports</span>
+                            <p>
+                                aliqua.adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..
+                            </p>
+                        </div>
+                    </div>
+                </div><!--latest news items-->
+                <div class="col-md-4 margin-btm-20">
+                    <div class="news-sec">
+                        <div class="news-thumnail">
+                            <a href="blog-post.html">
+                                <img src="blog/blog-2.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="news-desc">
+                            <h3 class="blog-post-title"><a href="blog-post.html" class="hover-color">Lorem ipsum dollor sit amet</a></h3>
+                            <span class="news-post-cat">On 26 may 2014 | sports</span>
+                            <p>
+                                aliqua.adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..
+                            </p>
+                        </div>
+                    </div>
+                </div><!--latest news items-->
+                <div class="col-md-4 margin-btm-20">
+                    <div class="news-sec">
+                        <div class="news-thumnail">
+                            <a href="blog-post.html">
+                                <img src="blog/blog-4.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="news-desc">
+                            <h3 class="blog-post-title"><a href="blog-post.html" class="hover-color">Lorem ipsum dollor sit amet</a></h3>
+                            <span class="news-post-cat">On 26 may 2014 | sports</span>
+                            <p>
+                                aliqua.adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..
+                            </p>
+                        </div>
+                    </div>
+                </div><!--latest news items-->
+            </div><!--row end-->
+        </div><!--container recent news end-->
+        <div class="space-50"></div>
+        <div class="newsletter-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <h3>Get latest news from us</h3>
+                        <p>
+                            Subscribe to our newsletter
+                        </p>
+                    </div>
+                </div><!--row-->
+
+                <div class="row">
+                    <div class="col-md-4 offset-md-4 text-center">
+                        <form method="post" action="#" class="form-subscribe">
+                            <input type="text" name="email" placeholder="Email Id..." class="form-control">
+                            <button type="submit" name="submit" class="btn theme-btn-color btn-block">Subscribe Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cta-bg">
+            <div class="container text-center">
+                <h3>Simple and Minimal Design
+                    <a href="#" class="btn btn-lg btn-white btn-radius">Purchase Now</a>
+                </h3>
+            </div>
+        </div>
+        <!--footer-->
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 margin-btm-20">
+                        <div class="footer-col">
+                            <h3>Bizwrap</h3>
+                            <p>
+                                aliqua.adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. aliqua.adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                            </p>
+                        </div>
+                        <div class="space-20"></div>
+                        <div class="footer-col">
+                            <h3>contact info</h3>
+                            <p><i class="ion-home"></i> pearl tower,3rd floor,jaipur,302012</p>
+                            <p><i class="ion-iphone"></i> +91 9887568614</p>
+                            <p><i class="ion-email"></i> mail@domain.com</p>
+                        </div>
+                        <div class="space-20"></div>
+                        <div class="footer-col">
+                            <h3>Follow us</h3>
+                            <ul class=" list-inline social-btn">
+                                <li class="list-inline-item"><a href="#"><i class="ion-social-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Like On Facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ion-social-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Follow On twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ion-social-googleplus" data-toggle="tooltip" data-placement="top" title="" data-original-title="Follow On googleplus"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ion-social-pinterest" data-toggle="tooltip" data-placement="top" title="" data-original-title="pinterest"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ion-social-skype" data-toggle="tooltip" data-placement="top" title="" data-original-title="skype"></i></a></li>
+                            </ul>
+                        </div><!--footer social col-->
+                    </div><!--col-4 end-->
+                    <div class="col-md-3 margin-btm-20">
+                        <div class="footer-col">
+                            <h3>Latest post</h3>
+                            <ul class="post-list list-unstyled">
+                                <li><a href="#" class="hover-color">Blog post with image</a></li>
+                                <li><a href="#" class="hover-color">lorem ipsum dollor sit amet</a></li>
+                                <li><a href="#" class="hover-color">Blog post with audio</a></li>
+                                <li><a href="#" class="hover-color">lorem ipsum dollor sit amet</a></li>
+                                <li><a href="#" class="hover-color">Blog post with quote</a></li>
+                            </ul>
+                        </div>
+                    </div><!--latest post col end-->
+                    <div class="col-md-5">
+                        <div class="footer-col">
+                            <h3>Get in touch</h3>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Name...">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Email...">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" placeholder="Subject...">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" placeholder="Massage..." rows="7"></textarea>
+                                    </div>
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" class="btn btn-lg btn-white">Send massege</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!--get in touch col end-->
+                </div><!--footer main row end-->
+                <div class="space-70"></div>
+                <div class="row">
+                    <div class="col-md-12 text-center footer-bottom">
+                        <a href="index.html"> <img src="logo-white.png" alt=""></a>
+                        <div class="space-20"></div>
+                        <span>&copy;2017. All right resrved. Design by design_mylife</span>
+                    </div>
+                </div><!--footer copyright row end-->
+            </div><!--container-->
+        </div><!--footer main end-->
+        <!--back to top-->
+        <a href="#" class="scrollToTop"><i class="ion-android-arrow-dropup-circle"></i></a>
+        <!--back to top end-->
+
+        <!-- jQuery plugins. -->
+        <script src="assets/js/plugins/plugins.js"></script>
+        <script src="assets/js/application.js"></script>
+
+
     <%= yield %>
   </body>
 </html>

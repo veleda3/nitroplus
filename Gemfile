@@ -14,6 +14,8 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -30,8 +32,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'pry'
 gem 'pry-byebug'
-gem 'sass-rails'
-gem 'compass-rails'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
