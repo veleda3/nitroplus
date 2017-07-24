@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'prices/index'
+
+  get 'prices/show'
+
   root   'welcome#index'
 
   resources :sessions, only: [:new, :create, :destroy]

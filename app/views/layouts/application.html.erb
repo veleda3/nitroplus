@@ -13,13 +13,15 @@
   </head>
 
   <body>
-    <body>
+
         <div id="preloader">
             <div id="preloader-inner"></div>
         </div><!--/preloader-->
         <%= render partial: 'partials/top_bar' %>
 
         <%= render partial: 'partials/navbar' %>
+
+          <%= yield %>
         <section id="slider-sec" class="slider-reg">
             <div class="main-flex-slider">
                 <ul class="slides">
@@ -385,6 +387,6 @@
         <script src="assets/js/application.js"></script>
 
 
-    <%= yield %>
+
   </body>
 </html>
