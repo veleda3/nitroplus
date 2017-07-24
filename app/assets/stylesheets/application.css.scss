@@ -419,7 +419,11 @@
   height: 50px;
   clear: both; }
 
-  /******************pricing************************/
+  /******************
+
+  pricing
+
+  *********************/
   .pricing-wrapper {
     border: 1px solid #eee; }
 
@@ -462,3 +466,89 @@
     border-bottom: 1px solid #eee; }
     .price-faq-box h3 {
       font-size: 20px; }
+
+/******************
+
+main- flex
+
+*********************/
+
+.main-flex-slider {
+  position: relative; }
+  .main-flex-slider figure {
+    margin: 0px; }
+
+.main-flex-slider .flex-control-nav {
+  bottom: 30px;
+  margin: 0;
+  height: 14px;
+  z-index: 10; }
+
+.main-flex-slider .flex-control-paging li a {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+  background: transparent !important;
+  border: 2px solid #ccc;
+  width: 8px;
+  height: 8px; }
+
+.main-flex-slider .flex-control-paging li a.flex-active {
+  background: transparent !important;
+  border: 2px solid #4c779e; }
+
+.portfolio-details .flex-control-paging li a {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+  background: transparent !important;
+  border: 2px solid #ccc;
+  width: 8px;
+  height: 8px; }
+
+.portfolio-details .flex-control-paging li a.flex-active {
+  background: transparent !important;
+  border: 2px solid #4c779e; }
+
+.slider-overlay,
+.slider-overlay-nobg {
+  background: rgba(0, 0, 0, 0.6);
+  background-image: url("pattern.png");
+  background-repeat: repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+
+.slider-overlay-nobg {
+  background: none; }
+
+.slider-text {
+  text-align: center;
+  text-shadow: 1px 1px 2px #222; }
+
+.slider-text h1 {
+  color: #fff;
+  margin-top: 150px;
+  font-size: 50px;
+  font-weight: 400;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  text-align: center; }
+
+.slider-text p {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 20px; }
+
+.slide-btn {
+  margin-top: 40px;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal !important; }
+
+.slide-btn .btn-white {
+  padding: 14px 25px; }

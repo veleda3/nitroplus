@@ -34,6 +34,7 @@ gem 'pry'
 gem 'pry-byebug'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'sprockets-rails', '2.3.3'
 
 
 # Use Capistrano for deployment
