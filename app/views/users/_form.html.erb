@@ -1,5 +1,3 @@
-
-
 <div class="space-70"></div>
 
 <div class="container">
@@ -21,18 +19,22 @@
                  <h4 class="text-uppercase">Sign up</h4><hr>
                  <div class="row">
                    <div class="col-md-6 margin-btm-20">
-                     <%= form.text_field :attr, placeholder: 'first name', id: :user_first_name, class: "form-control" %>
+                     <%= form.text_field :first_name, placeholder: 'first name', id: :user_first_name, class: "form-control" %>
                    </div>
+
                    <div class="col-md-6 margin-btm-20">
-                     <%= form.text_field :attr, placeholder: 'last name', id: :user_last_name, class: "form-control" %>
+                     <%= form.text_field :last_name, placeholder: 'last name', id: :user_last_name, class: "form-control" %>
                    </div>
+
                    <div class="col-md-6 margin-btm-20">
-                     <%= form.text_field :attr, placeholder: 'email', id: :user_email, class: "form-control" %>
+                     <%= form.text_field :email, placeholder: 'email', id: :user_email, class: "form-control" %>
                    </div>
+
                    <div class="col-md-6 margin-btm-20">
-                     <%= form.text_field :attr, placeholder: 'password', id: :user_password, class: "form-control" %>
+                     <%= form.text_field :password, placeholder: 'password', id: :user_password, class: "form-control" %>
                    </div>
-                   <div class="col-md-12 text-center">
+
+                   <div class=" col-md-12 text-center">
                      <%= form.submit class: "btn theme-btn-color" %>
                    </div>
                  <% end %>
