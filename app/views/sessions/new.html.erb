@@ -1,29 +1,39 @@
+
+<section id="content-region-3" class="padding-40 page-tree-bg">
+    <div class="container">
+        <h3 class="page-tree-text">
+            Login into your account
+        </h3>
+    </div>
+</section>
+<div class="space-70"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="my-login-form">
+              <%= form_tag sessions_path, class: "form-horizontal" do  %>
+                    <h4 class="text-uppercase">Login</h4><hr>
+                    <div class="form-group">
+                      <%= text_field_tag "email", nil,  class: "form-control", placeholder: "Email.."%>
+
+                    </div>
+                    <div class="form-group">
+                          <%= password_field_tag "password", nil,  class: "form-control",  placeholder: "Password.."%>
+                    </div>
+                    <div class=" text-right">
+                      <%= submit_tag "Login", class: "btn theme-btn-color"  %>
+                    </div>
+                    <%end%>
+                    <hr>
+                    <div class="form-btm-link text-center">
+                        <a href="#">Lost password?</a><span>Or</span><a href="signup.html">Create new account</a>
+                    </div>
+                </form><!--login form end-->
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="background3 lighten">
   <div class="forms-container container pad-below">
-    <h2>Login</h2>
-
-
-    <%= form_tag sessions_path, class: "form-horizontal" do  %>
-      <div class="form-group">
-        <%= label_tag "Email", nil,  class: "col-sm-2 control-label"%>
-        <div class="col-sm-3">
-          <%= text_field_tag "email", nil,  class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= label_tag "Password" , nil,  class: "col-sm-2 control-label"%>
-        <div class="col-sm-3">
-          <%= password_field_tag "password", nil,  class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-3">
-          <%= submit_tag "Login", class: "btn btn-default"  %>
-        </div>
-      </div>
-
-    <%end%>
-  </div>
-</div>
