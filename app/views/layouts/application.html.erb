@@ -4,6 +4,7 @@
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Nitroplus</title>
 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -16,7 +17,7 @@
 
         <div id="preloader">
             <div id="preloader-inner"></div>
-        </div><!--/preloader-->
+        </div>
         <%= render partial: 'partials/top_bar' %>
 
         <%= render partial: 'partials/navbar' %>
@@ -25,14 +26,13 @@
 
         <%= render partial: 'partials/footer' %>
 
-        <!--back to top-->
-        <a href="#" class="scrollToTop"><i class="ion-android-arrow-dropup-circle"></i></a>
-        <!--back to top end-->
 
-        <!-- jQuery plugins. -->
+        <a href="#" class="scrollToTop"><i class="ion-android-arrow-dropup-circle"></i></a>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="assets/js/plugins/plugins.js"></script>
         <script src="assets/js/application.js"></script>
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
 
