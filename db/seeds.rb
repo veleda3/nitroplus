@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+services = {
+    'Free trial' => {'price' => 000},
+    'Pay per month' => {'price' => 1999},
+    '6 months service' => {'price' => 9000}
+  }
+
+
+  services.each do |service, info|
+    Service.create(name: service, price: info['price'])
+  end
+
+
+equipments = {
+  'Android s905' => {'price' => 5000},
+  'Android s912' => {'price' => 8000}
+}
+
+equipments.each do |equipment, info|
+  Equipment.create(name: equipment, price: info['price'])
+end

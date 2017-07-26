@@ -1,0 +1,39 @@
+<section id="content-region-3" class="padding-40 page-tree-bg">
+            <div class="container">
+                <h3 class="page-tree-text">
+                    Checkout
+                </h3>
+            </div>
+        </section><!--page-tree end here-->
+        <div class="space-70"></div>
+        <div class="container">
+            <div class="checkout-top text-center">
+                <p class="lead">Place your order!</p>
+                
+            </div><!--checkout top end-->
+            <div class="space-70"></div>
+            <div class="shop-checkout">
+              <%= render partial: 'form' %>
+                <!--end form-->
+            </div>
+        </div>
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @service.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @service.price %>
+</p>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
