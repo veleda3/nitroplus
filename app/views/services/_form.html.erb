@@ -1,0 +1,179 @@
+<%= form_tag ('/sales/create') do %>
+
+  <div class="row">
+      <div class="col-md-6">
+          <h4 class="heading-mini">Billing Details</h4>
+          <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= text_field 'first_name', nil, placeholder: 'first name', class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= text_field :last_name, nil, placeholder: 'last name', id: :sales_last_name, class: "form-control" %>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= text_field :email, nil, placeholder: 'email', class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= select :state, nil, options_for_select(us_states),{}, class: 'form-control' %>
+                </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="form-group">
+                      <%= text_field :zip_code, nil, placeholder: 'zip code', class: "form-control" %>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="form-group">
+                      <%= text_field :address, nil, placeholder: 'address', class: "form-control" %>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="form-group">
+                      <div class="space-20"></div>
+                      <div id="create-account">
+                        <% if !logged_in? %>
+                          <%= password_field :password, nil, placeholder: 'password', class: "form-control" %>
+                          <% end %>
+                          <div class="space-10"></div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="form-group">
+                      <textarea class="form-control" placeholder="Notes about your order" rows="5"></textarea>
+                  </div>
+              </div>
+          </div>
+      </div><!--checkout col left end-->
+      <div class="col-md-6">
+          <h4 class="heading-mini">Your Order</h4>
+          <div class="table-responsive">
+              <table id="shopping-cart-table" class="shopping-cart-table table table-bordered table-striped">
+                  <thead>
+                      <tr>
+
+                          <th class="td-name">Product Name</th>
+
+                          <th class="td-total">Subtotal</th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td class="td-name">
+                              <h4 class="product-name">
+                                  <%= @service.name %>
+                              </h4>
+                          </td>
+
+                          <td class="td-total">
+                              <div class="price"><%= number_to_currency(@service.price, precision: 2) %></div>
+                          </td>
+
+                      </tr>
+                      <tr>
+                          <td class="td-name">
+                              <h4 class="product-name">
+                                  <%= Equipment.first.name %>
+
+                              </h4>
+                          </td>
+
+                          <td class="td-total">
+                              <div class="price">
+
+                                  <%=number_to_currency(Equipment.first.price, precision: 2) %>
+
+                              </div>
+                          </td>
+
+                      </tr>
+                  </tbody>
+              </table><!-- .shopping-cart-table -->
+          </div>
+          <div class="space-30"></div>
+          <ul class="list-unstyled cart-totals">
+              <li class="cart-subtotal">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <span>Please chose if you want the service only or service plus TVbox</span>
+                      </div>
+                  </div>
+              </li>
+              <li class="shipping">
+                  <div class="row">
+                      <div class="col-sm-6">
+                        <ul class="list-unstyled shipping-method">
+                            <li>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <%= radio_button_tag(:service_price, @service.price, :checked => true)%>
+                                        Service only
+                                        <span class="amount"><%= number_to_currency(@service.price, precision: 2) %></span>
+                                    </label>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <%= radio_button_tag(:service_price, "#{@service.price + Equipment.first.price}") %>
+                                        Service plus TV box
+                                        <span class="amount"><%= number_to_currency(Equipment.first.price + @service.price, precision: 2) %></span>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                          <div class="space-20"></div>
+                      </div>
+                      <div class="col-sm-6">
+
+                      </div>
+                  </div>
+              </li><!--shipping-->
+
+
+          </ul>
+          <div class="space-30"></div>
+          <h4 class="heading-mini"></h4>
+          <ul class="payment-methods list-unstyled">
+            <span>
+                Credit Card Payment using Stripe or Paypal
+            </span>
+            <br>
+              <li>
+                  <%= radio_button_tag(:payment_method, "stripe") %><label for="stripe"> Stripe Payments</label><%=image_tag("stripe_logo.png", class: "img-fluid", alt: "", width: "90")%>
+
+              </li>
+              <li>
+                  <%= radio_button_tag(:payment_method, "paypal") %><label for="paypal"> Paypal <%=image_tag("paypal.jpg", class: "img-fluid", alt: "", width: "90")%></label>
+              </li>
+          </ul>
+
+          <p>
+              <input type="checkbox" name="agree" id="agree">
+              <label for="agree">Accept our <a href="javascript:void(0)">Terms &  Condition</a></label>
+          </p>
+          <%= submit_tag("Place order", class: "btn btn-lg btn-block btn-dark")%>
+      </div><!--checkout col left end-->
+  </div>
+<% end %>

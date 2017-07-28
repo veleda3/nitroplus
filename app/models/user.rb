@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  
+has_many :questions
+has_many :sales
+has_many :services, through: :sales, foreign_key: "service_id"
+has_many :equipments, through: :sales, foreign_key: "equipment_id"
+
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 
