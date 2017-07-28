@@ -31,7 +31,7 @@
           <div class="row">
               <div class="col-sm-12">
                   <div class="form-group">
-                      <%= text_field :zip_code, nil, placeholder: 'zip code', class: "form-control" %>
+                      <%= text_field :zip, nil, placeholder: 'zip code', class: "form-control" %>
                   </div>
               </div>
           </div>
@@ -59,7 +59,7 @@
           <div class="row">
               <div class="col-sm-12">
                   <div class="form-group">
-                      <textarea class="form-control" placeholder="Notes about your order" rows="5"></textarea>
+                      <%= text_area :note, nil, placeholder: 'Notes about your order', class: "form-control", rows:'5'%>
                   </div>
               </div>
           </div>
@@ -86,7 +86,9 @@
                           </td>
 
                           <td class="td-total">
-                              <div class="price"><%= number_to_currency(@service.price, precision: 2) %></div>
+                              <div class="price"><%= number_to_currency(@service.price, precision: 2) %>
+                                <%= hidden_field :service_id, "#{@service.id}" %>
+                              </div>
                           </td>
 
                       </tr>
@@ -126,7 +128,7 @@
                             <li>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <%= radio_button_tag(:service_price, @service.price, :checked => true)%>
+                                        <%= radio_button_tag(:amount, @service.price, :checked => true)%>
                                         Service only
                                         <span class="amount"><%= number_to_currency(@service.price, precision: 2) %></span>
                                     </label>
@@ -136,7 +138,7 @@
                             <li>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <%= radio_button_tag(:service_price, "#{@service.price + Equipment.first.price}") %>
+                                        <%= radio_button_tag(:amount, "#{@service.price + Equipment.first.price}") %>
                                         Service plus TV box
                                         <span class="amount"><%= number_to_currency(Equipment.first.price + @service.price, precision: 2) %></span>
                                     </label>

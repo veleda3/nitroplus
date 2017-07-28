@@ -2,7 +2,6 @@ class SalesController < ApplicationController
   def create
     if !logged_in?
       @user = User.new(user_params)
-
       if @user.save
         session[:user_id] = @user.id
         # UserMailer.welcome_email(@user).deliver!
@@ -10,9 +9,12 @@ class SalesController < ApplicationController
         @errors = @user.errors.full_messages
         render :template => "services/show"
       end
+
     end
 
+    @sale = @user.sales.new(sales_params)
     
+
   end
 
   def show
@@ -21,10 +23,20 @@ class SalesController < ApplicationController
   private
 
   def user_params
-    params.permit(:first_name[0], :last_name[0], :email[0], :password[0])
+    params[:first_name] = params[:first_name].join
+    params[:last_name] = params[:last_name].join
+    params[:email] = params[:email].join
+    params[:password] = params[:password].join
+    params.permit(:first_name, :last_name, :email, :password)
   end
 
   def sales_params
-    params.permit(:zip_code[0], :address[0], :state[0], :note[0], :service_price, :payment_method)
+    params[:zip] = params[:zip].join
+    params[:address] = params[:address].join
+    params[:state] = params[:state].join
+    if params[:note]
+      params[:note] = params[:note].join
+    end
+    params.permit(:zip, :address, :state, :note, :amount, :service_id)
   end
 end
