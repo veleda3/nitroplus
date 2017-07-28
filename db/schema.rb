@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20170726160657) do
 
   create_table "sales", force: :cascade do |t|
     t.decimal "amount"
+    t.string "zip"
+    t.string "state"
+    t.string "address"
+    t.string "note"
     t.bigint "service_id"
     t.bigint "equipment_id"
     t.bigint "user_id"
