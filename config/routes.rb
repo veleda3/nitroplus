@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'sales/create'
+
+  get 'sales/show'
+
   resources :services
   get 'prices/index'
 

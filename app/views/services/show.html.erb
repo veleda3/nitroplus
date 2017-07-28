@@ -9,11 +9,11 @@
         <div class="container">
             <div class="checkout-top text-center">
                 <p class="lead">Place your order!</p>
-                
+
             </div><!--checkout top end-->
             <div class="space-70"></div>
             <div class="shop-checkout">
-              <%= render partial: 'form' %>
+              <%= render partial: 'form', :locals => {@service => @service } %>
                 <!--end form-->
             </div>
         </div>

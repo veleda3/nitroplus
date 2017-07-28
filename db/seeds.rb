@@ -9,9 +9,9 @@
 
 
 services = {
-    'Free trial' => {'price' => 000},
-    'Pay per month' => {'price' => 1999},
-    '6 months service' => {'price' => 9000}
+    'Free trial' => {'price' => 0},
+    'Pay per month' => {'price' => 19.99},
+    '6 months service' => {'price' => 90.00}
   }
 
 
@@ -21,8 +21,8 @@ services = {
 
 
 equipments = {
-  'Android s905' => {'price' => 5000},
-  'Android s912' => {'price' => 8000}
+  'Android s905' => {'price' => 50.00},
+  'Android s912' => {'price' => 80.00}
 }
 
 equipments.each do |equipment, info|
