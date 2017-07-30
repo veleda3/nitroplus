@@ -13,7 +13,6 @@ class SalesController < ApplicationController
       end
 
     end
-
     if @errors.blank?
       @sale = @user.sales.new(sales_params)
       @sale.save
@@ -39,7 +38,7 @@ class SalesController < ApplicationController
             notify_url: root_url,
             amount: params[:total_amount],
             quantity: '1',
-            return: root_url
+            return: @user
           }
           redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
         end
