@@ -2,12 +2,13 @@ class SalesController < ApplicationController
   def create
     if !logged_in?
       @user = User.new(user_params)
+
       if @user.save
         session[:user_id] = @user.id
         # UserMailer.welcome_email(@user).deliver!
       else
         @errors = @user.errors.full_messages
-        redirect_to "/services/#{params[:service_id]}"
+        redirect_to "/services/#{params[:service_id]}", notice = @errors
         #render :template => "services/show"
       end
 
@@ -25,11 +26,11 @@ class SalesController < ApplicationController
           card_token = Stripe::Token.create( :card => { :name => params[:card_name], :number => params[:card_number], :exp_month => params[:exp_month], :exp_year => params[:exp_year], :cvc => params[:card_cvv] })
           customer_params = {:card => card_token[:id], :plan => plan, :email => current_user.email}
 
-          stripe_customer = Stripe::Customer.create(customer_params) 
+          stripe_customer = Stripe::Customer.create(customer_params)
           message = "Payment Successful"
-          redirect_to root_url, notice: message
+          redirect_to @user, notice: message
         end
-      
+
         if params[:payment_method] == "paypal"
           values = {
             business: @user.email,
@@ -40,7 +41,6 @@ class SalesController < ApplicationController
             quantity: '1',
             return: root_url
           }
-
           redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
         end
       end
@@ -53,10 +53,6 @@ class SalesController < ApplicationController
   private
 
   def user_params
-    # params[:first_name] = params[:first_name].join
-    # params[:last_name] = params[:last_name].join
-    # params[:email] = params[:email].join
-    # params[:password] = params[:password].join
     params.permit(:first_name, :last_name, :email, :password)
   end
 
