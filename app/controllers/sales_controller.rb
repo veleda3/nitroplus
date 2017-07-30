@@ -56,12 +56,6 @@ class SalesController < ApplicationController
   end
 
   def sales_params
-    # params[:zip] = params[:zip].join
-    # params[:address] = params[:address].join
-    # params[:state] = params[:state].join
-    # if params[:note]
-    #   params[:note] = params[:note].join
-    # end
     params.permit(:zip, :address, :state, :note, :amount, :service_id, :equipment_id)
   end
 end
