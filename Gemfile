@@ -36,7 +36,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sprockets-rails', '2.3.3'
 gem 'stripe'
-
+gem 'rails_12factor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
