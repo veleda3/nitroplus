@@ -12,8 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require bootstrap
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 //Bizwrap 3.0 Jquery custom file
 var $ = $.noConflict();
