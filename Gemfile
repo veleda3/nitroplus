@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.2.4"
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -37,7 +37,7 @@ gem 'jquery-ui-rails'
 gem 'sprockets-rails', '2.3.3'
 gem 'stripe'
 gem 'rails_12factor'
-gem 'ruby', '2.3.4'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
