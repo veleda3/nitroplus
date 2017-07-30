@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :questions, only: [:show, :create]
+
   post 'sales/create'
 
   get 'sales/show'
