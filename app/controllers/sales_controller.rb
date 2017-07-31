@@ -20,28 +20,13 @@ class SalesController < ApplicationController
 
       unless params[:total_amount].to_i == 0
         if params[:payment_method] == "stripe"
-          Stripe.api_key = Rails.application.secrets.stripe_secret_key
-          amt = sprintf('%.2f', params[:total_amount])
-          plan = "plan_#{amt}"
-          card_token = Stripe::Token.create( :card => { :name => params[:card_name], :number => params[:card_number], :exp_month => params[:exp_month], :exp_year => params[:exp_year], :cvc => params[:card_cvv] })
-          customer_params = {:card => card_token[:id], :plan => plan, :email => current_user.email}
-
-          stripe_customer = Stripe::Customer.create(customer_params)
-          message = "Payment Successful"
-          redirect_to @user, notice: message
+          Sale.process_stripe_payment(params, current_user.email)
+          redirect_to @user, notice: "Payment Successful"
         end
 
         if params[:payment_method] == "paypal"
-          values = {
-            business: @user.email,
-            cmd: '_xclick',
-            upload: 1,
-            notify_url: root_url,
-            amount: params[:total_amount],
-            quantity: '1',
-            return: root_url
-          }
-          redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+          paypal_url = Sale.process_paypal_payment(params, current_user.email, root_url)
+          redirect_to paypal_url
         end
       end
     end
@@ -57,12 +42,6 @@ class SalesController < ApplicationController
   end
 
   def sales_params
-    # params[:zip] = params[:zip].join
-    # params[:address] = params[:address].join
-    # params[:state] = params[:state].join
-    # if params[:note]
-    #   params[:note] = params[:note].join
-    # end
     params.permit(:zip, :address, :state, :note, :amount, :service_id, :equipment_id)
   end
 end
