@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'apps/index'
+
+  get 'channels/index'
+
+  resources :questions, only: [:show, :create]
+
   post 'sales/create'
 
   get 'sales/show'
