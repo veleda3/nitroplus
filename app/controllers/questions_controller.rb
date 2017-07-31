@@ -4,11 +4,9 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    binding.pry
     if @question.save
       redirect_to @question
     else
-      binding.pry
       @errors = @question.errors.full_messages
       redirect_to "/", notice = @errors
     end
