@@ -13,7 +13,6 @@ class SalesController < ApplicationController
       end
 
     end
-
     if @errors.blank?
       @sale = @user.sales.new(sales_params)
       @sale.save
@@ -25,8 +24,10 @@ class SalesController < ApplicationController
         end
 
         if params[:payment_method] == "paypal"
+
           paypal_url = Sale.process_paypal_payment(params, current_user.email, root_url)
           redirect_to paypal_url
+
         end
       end
     end
