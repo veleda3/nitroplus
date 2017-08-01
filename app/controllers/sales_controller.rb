@@ -19,8 +19,12 @@ class SalesController < ApplicationController
 
       unless params[:total_amount].to_i == 0
         if params[:payment_method] == "stripe"
-          Sale.process_stripe_payment(params, current_user.email)
-          redirect_to @user, notice: "Payment Successful"
+          begin
+            Sale.process_stripe_payment(params, current_user.email)
+            redirect_to @user, notice: "Payment Successful"
+          rescue Stripe::CardError => e
+            redirect_to @user, alert: e.message 
+          end
         end
 
         if params[:payment_method] == "paypal"
