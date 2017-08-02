@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -22,10 +23,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      @user.save(validate: false)
+      UserMailer.registration_confirmation(@user).deliver
+      flash[:success] = "Please confirm your email address to continue"
+      redirect_to root_url
+
+
       # UserMailer.welcome_email(@user).deliver!
     else
       @errors = @user.errors.full_messages
+      flash[:error] = "Invalid, please try again"
       render :new
     end
   end
@@ -42,6 +49,19 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def confirm_email
+  @user = User.find_by_confirm_token(params[:token])
+   if user
+     user.email_activate
+      flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+      Please sign in to continue."
+      redirect_to @user
+   else
+     flash[:error] = "Sorry. User does not exist"
+     redirect_to root_url
+   end
+ end
 
 
 
