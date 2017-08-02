@@ -29,7 +29,8 @@ class SalesController < ApplicationController
 
         if params[:payment_method] == "paypal"
 
-          paypal_url = Sale.process_paypal_payment(params, current_user.email, "/users/#{current_user.id}")
+          paypal_url = Sale.process_paypal_payment(params, current_user.email, user_url(current_user.id))
+
           redirect_to paypal_url
 
         end
