@@ -3,6 +3,8 @@ class Sale < ApplicationRecord
   belongs_to :equipment
   belongs_to :user
 
+  validates :amount, :zip, :state, :address, presence: true
+
   def self.process_stripe_payment(params, email)
     Stripe.api_key = Rails.application.secrets.stripe_secret_key
     amt = sprintf('%.2f', params[:total_amount])
