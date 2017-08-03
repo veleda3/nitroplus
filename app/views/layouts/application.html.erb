@@ -23,7 +23,19 @@
         <%= render partial: 'partials/top_bar' %>
 
         <%= render partial: 'partials/navbar' %>
-
+        <% if !flash.empty? %>
+          <div id="flash_messages">
+            <% flash.each do |key, value| %>
+              <%if value.kind_of?(Array) %>
+                <%value.each do |error| %>
+                  <%=content_tag(:div, error, :class => "#{error}") %>
+                  <% end %>
+              <% else %>
+                <%= content_tag(:div, value, :class => "flash #{key}") %>
+                <%end%>
+            <% end %>
+          </div>
+        <% end %>
           <%= yield %>
 
         <%= render partial: 'partials/footer' %>

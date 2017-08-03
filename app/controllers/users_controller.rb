@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -22,7 +23,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      @user.save(validate: false)
+      UserMailer.registration_confirmation(@user).deliver
+      redirect_to root_url, :flash => { alert: "Please confirm your email address, check your mailbox!" }
+
+
       # UserMailer.welcome_email(@user).deliver!
     else
       @errors = @user.errors.full_messages
@@ -42,6 +47,16 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def confirm_email
+  @user = User.find_by_confirm_token(params[:id])
+   if @user
+     @user.email_activate
+      redirect_to @user, :flash => { alert: "Welcome to the NitroPlus! Your email has been confirmed." }
+   else
+     redirect_to root_url, :flash => { error: "Sorry. User does not exist" }
+   end
+ end
 
 
 

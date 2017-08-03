@@ -21,5 +21,13 @@ Rails.application.routes.draw do
     get '/logout' => "sessions#destroy"
 
   resources :users, except: [:destroy, :index]
+
+  get '/:token/confirm_email/', :to => "users#confirm_email", as: 'confirm_email'
+
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

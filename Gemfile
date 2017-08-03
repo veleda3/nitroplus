@@ -37,6 +37,7 @@ gem 'jquery-ui-rails'
 gem 'sprockets-rails', '2.3.3'
 gem 'stripe'
 gem 'rails_12factor'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 
 # Use Capistrano for deployment

@@ -5,15 +5,17 @@ class SalesController < ApplicationController
 
       if @user.save
         session[:user_id] = @user.id
-        # UserMailer.welcome_email(@user).deliver!
+        @user.save(validate: false)
+        UserMailer.registration_confirmation(@user).deliver
       else
-        @errors = @user.errors.full_messages
-        redirect_to "/services/#{params[:service_id]}", notice = @errors
-        #render :template => "services/show"
+        errors = @user.errors.full_messages
+
+        redirect_to "/services/#{params[:service_id]}", :flash => { error: errors }
+
       end
 
     end
-    if @errors.blank?
+    if errors.blank?
       @sale = @user.sales.new(sales_params)
       @sale.save
 
@@ -21,9 +23,9 @@ class SalesController < ApplicationController
         if params[:payment_method] == "stripe"
           begin
             Sale.process_stripe_payment(params, current_user.email)
-            redirect_to @user, notice: "Payment Successful"
+            redirect_to @user, :flash => { notice: "Payment Successful" }
           rescue Stripe::CardError => e
-            redirect_to @user, alert: e.message 
+            redirect_to "/services/#{params[:service_id]}", :flash => { alert: e.message }
           end
         end
 
