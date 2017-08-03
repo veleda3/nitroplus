@@ -14,6 +14,8 @@
   </head>
 
   <body>
+        <div id="notice"><%= notice %></div>
+        <div id="alert"><%= alert %></div>
 
         <div id="preloader">
             <div id="preloader-inner"></div>
@@ -45,7 +47,15 @@
         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
+        <style type="text/css">
+          #notice{
+            color: green;
+          }
 
+          #alert{
+            color: red;
+          }
+        </style>
 
   </body>
 </html>
