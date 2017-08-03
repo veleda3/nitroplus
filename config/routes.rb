@@ -16,6 +16,14 @@ Rails.application.routes.draw do
 
   root   'welcome#index'
 
+  get 'download_android_app', to: "apps#download_android_app"
+
+  get 'download_kodi_addon', to: "apps#download_kodi_addon"
+
+  get 'download_gse_iptv', to: "apps#download_gse_iptv"
+
+  get 'download_stv_emulator', to: "apps#download_stv_emulator"
+
   resources :sessions, only: [:new, :create, :destroy]
 
     get '/logout' => "sessions#destroy"

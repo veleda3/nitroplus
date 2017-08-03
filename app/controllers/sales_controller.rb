@@ -15,28 +15,29 @@ class SalesController < ApplicationController
       end
 
     end
-    if errors.blank?
-      @sale = @user.sales.new(sales_params)
-      @sale.save
+    @sale = @user.sales.new(sales_params)
+    if @sale.save
+      if errors.blank?
 
-      unless params[:total_amount].to_i == 0
-        if params[:payment_method] == "stripe"
-          begin
-            Sale.process_stripe_payment(params, current_user.email)
-            redirect_to @user, :flash => { notice: "Payment Successful" }
-          rescue Stripe::CardError => e
-            redirect_to "/services/#{params[:service_id]}", :flash => { alert: e.message }
+        unless params[:total_amount].to_i == 0
+          if params[:payment_method] == "stripe"
+            begin
+              Sale.process_stripe_payment(params, current_user.email)
+              redirect_to @user, :flash => { notice: "Payment Successful" }
+            rescue Stripe::CardError => e
+              redirect_to "/services/#{params[:service_id]}", :flash => { alert: e.message }
+            end
+          end
+
+          if params[:payment_method] == "paypal"
+            paypal_url = Sale.process_paypal_payment(params, current_user.email, "/users/#{current_user.id}")
+            redirect_to paypal_url
           end
         end
-
-        if params[:payment_method] == "paypal"
-
-          paypal_url = Sale.process_paypal_payment(params, current_user.email, user_url(current_user.id))
-
-          redirect_to paypal_url
-
-        end
       end
+    else
+      errors = @sale.errors.full_messages
+      redirect_to "/services/#{params[:service_id]}", :flash => { error: errors }
     end
   end
 
