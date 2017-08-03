@@ -1,8 +1,9 @@
 class UserMailer < ActionMailer::Base
-  default :from => "application_name@domain.com"
+  default :from => ENV["GMAIL_ADDRESS"]
+
 
 def registration_confirmation(user)
    @user = user
-   mail(:to => "#{user.full_name} <#{user.email}>", :subject => "Registration Confirmation for NitroPlus")
+   mail to: user.email, subject: "Registration Confirmation for NitroPlus"
  end
 end
