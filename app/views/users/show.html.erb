@@ -1,22 +1,45 @@
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<div class="space-70"></div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+<div class="col-md-4">
+  <div class="sidebar-box">
+  </div><!--sidebar-box--><hr>
+  <div class="sidebar-box">
+      <h4><%=@user.full_name%></h4>
+      <img src="http://static4.businessinsider.com/image/52c9702c6bb3f751704f26dd/according-to-science-these-are-the-best-photos-to-use-in-your-dating-profile.jpg" />
+  </div><hr>
+  <div class="sidebar-box">
+      <h4>Current Information</h4>
+       <p>First Name: <%= @user.first_name %></p>
+       <p>Last Name: <%= @user.last_name %></p>
+       <p>Email: <%= @user.email %></p>
+       <%= link_to 'Edit', edit_user_path(@user) %>
+  </div><hr>
+  <div class="sidebar-box">
+      <h4>User services</h4>
+      <div class="recent">
+        <h5> service information </h5>
+        <% if @user.sales.first %>
+          <p>Address: <%= @user.sales.first.address %></p>
+          <p>State: <%= @user.sales.first.state %></p>
+          <p>Zip Code: <%= @user.sales.first.zip %></p>
+          <p>Service type: <%= @user.services.first.name %></p>
+        <% else %>
+          <p> you dont have any NitroPlus services yet, try us out for free!</p>
+          <%= link_to 'Services', services_path(@user) %>
+        <% end %>
+      </div>
+  </div>
+  <hr>
+</div>
+<div class="space-70"></div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+    <!-- <div class="points">
+      <h4>875</h4>
+      <p>Power Points</p>
+    </div>
+    <div class="deal">
+      <h3>Latest Deal</h3>
+      <img src="http://lorempixel.com/600/215" />
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    </div> -->

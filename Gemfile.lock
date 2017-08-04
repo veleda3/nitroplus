@@ -210,7 +210,7 @@ DEPENDENCIES
   rails (~> 5.1.2)
   rails_12factor
   rails_db_info
-  sass-rails (~> 5.0)
+  sass-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails (= 2.3.3)

@@ -15,45 +15,22 @@
 
   <body>
 
-        <div id="preloader">
-            <div id="preloader-inner"></div>
-        </div>
+
         <%= render partial: 'partials/top_bar' %>
 
         <%= render partial: 'partials/navbar' %>
-        <% if !flash.empty? %>
-          <div id="flash_messages">
-            <% flash.each do |key, value| %>
-              <%if value.kind_of?(Array) %>
-                <%value.each do |error| %>
-                  <%=content_tag(:div, error, :class => "#{error}") %>
-                  <% end %>
-              <% else %>
-                <%= content_tag(:div, value, :class => "flash #{key}") %>
-                <%end%>
-            <% end %>
-          </div>
-        <% end %>
+
+        <%= render partial: 'partials/flash_messages' %>
+
           <%= yield %>
 
         <%= render partial: 'partials/footer' %>
 
 
-        <a href="#" class="scrollToTop"><i class="ion-android-arrow-dropup-circle"></i></a>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
-        <style type="text/css">
-          #notice{
-            color: green;
-          }
-
-          #alert{
-            color: red;
-          }
-        </style>
 
   </body>
 </html>

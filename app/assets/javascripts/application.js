@@ -16,13 +16,7 @@
 //= require bootstrap
 //= require jquery_ujs
 //Bizwrap 3.0 Jquery custom file
-var $ = $.noConflict();
-$(function () {
-    "use strict";
-    //preloader
-    $(window).preloader({
-        delay: 500
-    });
+
     //sticky header on scroll
     $(window).on("scroll", function () {
         var scroll = $(window).scrollTop();
@@ -67,29 +61,11 @@ $(function () {
         }
     });
 
-    $('[data-toggle="tooltip"]').tooltip()
-    $('.main-flex-slider,.testimonials').flexslider({
-        slideshowSpeed: 5000,
-        directionNav: false,
-        animation: "fade"
-    });
 
-//wow scroll animation
-    new WOW().init();
-    ({
-        boxClass: 'wow',
-        animateClass: 'animated',
-        offset: 30,
-        live: true
-    });
+
 
     //masonry blog post
-    var $container = $('#mas-boxes');
-    $container.imagesLoaded(function () {
-        $container.masonry({
-            itemSelector: '.mas-boxes-inner'
-        });
-    });
+
     /*****maginific popup **/
     $('.popup-container').each(function () {
         $(this).magnificPopup({
@@ -109,10 +85,7 @@ $(function () {
             }
         });
     });
-    /**video popup**/
-    $('.modal-video').magnificPopup({
-        type: 'iframe'
-    });
+
 
 //transparent header onepage
     $(document).on("scroll", function () {
@@ -124,4 +97,3 @@ $(function () {
             $(".transparent-header").removeClass("shrink");
         }
     });
-});

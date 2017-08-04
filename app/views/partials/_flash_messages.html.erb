@@ -1,0 +1,14 @@
+<% if !flash.empty? %>
+  <div class="alert">
+    <a href="" class="close">x</a>
+    <% flash.each do |key, value| %>
+      <%if value.kind_of?(Array) %>
+        <%value.each do |error| %>
+          <%=content_tag(:p, error, :class => "error") %>
+          <% end %>
+      <% else %>
+        <%= content_tag(:p, value, :class => "flash") %>
+        <%end%>
+    <% end %>
+  </div>
+<% end %>
