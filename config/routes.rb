@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+
+  post 'post_content', to: "posts#post_content"
+
+  post 'comment_content', to: "comments#comment_content"
+
   get 'apps/index'
 
   get 'channels/index'

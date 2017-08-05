@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include  ActionView::Helpers::NumberHelper
+  include  ActionView::Helpers::DateHelper
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?, :unauthorized, :us_states
 
