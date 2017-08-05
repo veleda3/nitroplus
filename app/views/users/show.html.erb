@@ -30,9 +30,6 @@
       <div class="recent">
         <h5> service information </h5>
         <% if @user.sales.first %>
-          <p>Address: <%= @user.sales.first.address %></p>
-          <p>State: <%= @user.sales.first.state %></p>
-          <p>Zip Code: <%= @user.sales.first.zip %></p>
           <p>Service type: <%= @user.services.first.name %></p>
         <% else %>
           <p> you dont have any NitroPlus services yet, try us out for free!</p>
@@ -43,6 +40,7 @@
   <hr>
 </div>
 <div class="col-md-8">
+  <% if current_user %>
   <h4 class="heading-mini">
         Ask any question or share your thoughts!
     </h4>
@@ -54,13 +52,14 @@
                 <%= hidden_field_tag 'user_id', @user.id %>
               </div>
               <div class="col-md-12">
-                  <%= text_area_tag :content, nil, placeholder: 'post...', class: "form-control", rows:'7'%>
+                  <%= text_area_tag :content, nil, placeholder: 'post...', class: "form-control", rows:'4'%>
               </div>
               <div class="col-md-12 text-right">
                   <%= submit_tag "Send post", class: "btn btn-outline-info" %>
               </div>
           </div>
       <% end %>
+    <%end%>
 
 
               <div role="tabpanel" class="tab-pane"
@@ -83,6 +82,7 @@
                               <p>
                                 <%= post.content %>
                               </p>
+                              <% if logged_in? %>
                               <%= form_tag (comment_content_path) do %>
                                 <div class="row">
                                 <div class="col-md-8 offset-md-2 product-information">
@@ -91,18 +91,20 @@
                                 <div class="col-md-6">
                                     <%= text_area_tag :body, nil, placeholder: 'comment on the post...', class: "form-control", rows:'1'%>
                                 </div>
-                                <div class="col-md-12 text-right">
+                                <div class="col-md-6 text-right">
                                     <%= submit_tag "Submit comment", class: "btn btn-outline-info" %>
                                 </div>
                             </div>
                             <% end %>
+                            <%end%>
                           </div>
-                          <% post.comments do |comment| %>
+                          <% post.comments.each do |comment| %>
                             <ul class="reviews list-unstyled">
+                              <div class="col-md-6">
                               <li class="clearfix">
                                 <span class="avtar">
                                   <% if @user.picture? %>
-                                    <%= image_tag comment.post.user.picture.url, class: "img-circle", size: "100x140"%>
+                                    <%= image_tag comment.post.user.picture.url, class: "img-circle", size: "40x40"%>
                                   <% else %>
                                     <%=image_tag("avtar.png", class: "img-circle", size: "40x40")%>
                                   <% end %>
@@ -115,6 +117,7 @@
                                       <%= comment.body %>
                                     </p>
                                 </li>
+                                <div>
                               </ul>
                           <% end %>
                       </li>
