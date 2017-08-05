@@ -1,11 +1,22 @@
-<div class="space-70"></div>
+<div class="container">
+  <div class="space-70"></div>
 
 <div class="col-md-4">
   <div class="sidebar-box">
-  </div><!--sidebar-box--><hr>
+  </div>
   <div class="sidebar-box">
       <h4><%=@user.full_name%></h4>
-      <img src="http://static4.businessinsider.com/image/52c9702c6bb3f751704f26dd/according-to-science-these-are-the-best-photos-to-use-in-your-dating-profile.jpg" />
+      <% if @user.picture? %>
+        <%= image_tag @user.picture.url, class: "img-fluid", size: "200x240"%>
+      <% else %>
+      <%=image_tag("avtar.png", class: "img-fluid", size: "150x200")%>
+      <% end %>
+      <%= form_for(@user) do |f| %>
+        <span class="picture">
+          <%= f.file_field :picture%>
+        </span>
+         <%= f.submit "upload avatar", class: "btn btn-outline-info" %>
+      <% end %>
   </div><hr>
   <div class="sidebar-box">
       <h4>Current Information</h4>
@@ -31,7 +42,98 @@
   </div>
   <hr>
 </div>
+<div class="col-md-8">
+  <h4 class="heading-mini">
+        Ask any question or share your thoughts!
+    </h4>
+    <%= form_tag (post_content_path) do %>
+
+
+          <div class="row">
+              <div class="col-md-8 offset-md-2 product-information">
+                <%= hidden_field_tag 'user_id', @user.id %>
+              </div>
+              <div class="col-md-12">
+                  <%= text_area_tag :content, nil, placeholder: 'post...', class: "form-control", rows:'7'%>
+              </div>
+              <div class="col-md-12 text-right">
+                  <%= submit_tag "Send post", class: "btn btn-outline-info" %>
+              </div>
+          </div>
+      <% end %>
+
+
+              <div role="tabpanel" class="tab-pane"
+               id="Reviews" aria-expanded="false">
+                <% @user.posts.each do |post| %>
+                  <ul class="reviews list-unstyled">
+                      <li class="clearfix">
+                          <span class="avtar">
+                            <% if @user.picture? %>
+                              <%= image_tag @user.picture.url, class: "img-circle", size: "80x50"%>
+                            <% else %>
+                            <%=image_tag("avtar.png", class: "img-circle", size: "80x80")%>
+                            <% end %>
+                          </span>
+                          <div class="review-content">
+
+                              <h4><%=@user.full_name%></h4>
+                              <span class="time-review"><%=time_ago_in_words(post.created_at)%> ago </span>
+
+                              <p>
+                                <%= post.content %>
+                              </p>
+                              <%= form_tag (comment_content_path) do %>
+                                <div class="row">
+                                <div class="col-md-8 offset-md-2 product-information">
+                                  <%= hidden_field_tag 'post_id', post.id %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= text_area_tag :body, nil, placeholder: 'comment on the post...', class: "form-control", rows:'1'%>
+                                </div>
+                                <div class="col-md-12 text-right">
+                                    <%= submit_tag "Submit comment", class: "btn btn-outline-info" %>
+                                </div>
+                            </div>
+                            <% end %>
+                          </div>
+                          <% post.comments do |comment| %>
+                            <ul class="reviews list-unstyled">
+                              <li class="clearfix">
+                                <span class="avtar">
+                                  <% if @user.picture? %>
+                                    <%= image_tag comment.post.user.picture.url, class: "img-circle", size: "100x140"%>
+                                  <% else %>
+                                    <%=image_tag("avtar.png", class: "img-circle", size: "40x40")%>
+                                  <% end %>
+                                  </span>
+                                  <div class="review-content">
+                                    <h4><%=@user.full_name%></h4>
+                                    <span class="time-review"><%=time_ago_in_words(post.created_at)%> ago </span>
+
+                                    <p>
+                                      <%= comment.body %>
+                                    </p>
+                                </li>
+                              </ul>
+                          <% end %>
+                      </li>
+                  </ul>
+                  <% end %>
+                  <div class="space-30"></div>
+
+
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+
+</div>
 <div class="space-70"></div>
+
+
 
 
     <!-- <div class="points">
