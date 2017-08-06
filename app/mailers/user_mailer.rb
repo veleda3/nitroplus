@@ -1,5 +1,6 @@
 class UserMailer < ActionMailer::Base
-  default :from => ENV["GMAIL_ADDRESS"]
+#   default :from => ENV["GMAIL_ADDRESS"]
+default :from => "noreply@nitroplus.com"
 
 
 def registration_confirmation(user)
