@@ -3,7 +3,8 @@ class UserMailer < ActionMailer::Base
 
   def registration_confirmation(user)
     @user = user
-    mail(:to => "#{user.name} <#{user.email}", :subject => "Registration Confirmation for Awesome App")
+    mail(:to => user.email, :subject => "Registration Confirmation for Awesome App")
+    # mail(:to => "#{user.name} <#{user.email}", :subject => "Registration Confirmation for Awesome App")
   end
 
 end
