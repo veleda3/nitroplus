@@ -16,6 +16,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+
 @media (min-width: 768px) {
   .navbar-toggleable-sm .navbar-nav .nav-link {
     padding-right: .8rem;
@@ -140,10 +142,38 @@
     .navbar.transparent-header.navbar-light.shrink .logo-scroll .visible-default {
       opacity: 1; }
 
+
+.slides figure  img{
+	height: 100vh;
+	width: 100vw;
+}
+
+figcaption .slider-text{
+	padding: 5em 1.5em;
+}
+
+@media only screen and (max-width: 340px) {
+    .slider-text h1 {
+        font-size: 36px;
+	margin-top: 40px;
+	margin-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .slider-text h1 {
+        font-size: 40px;
+	margin-top: 150px;
+	margin-bottom: 10px;
+    }
+}
+
 @media (max-width: 991px) {
   .collapse.show {
     overflow-y: auto;
     max-height: 300px; } }
+
+
 
 /*============================*/
 /*======dropdowm menu=========*/

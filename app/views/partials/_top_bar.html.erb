@@ -11,11 +11,11 @@
                 <div class="text-right">
                     <ul class="info list-inline">
                       <%if logged_in?%>
-                        <li class="hidden-xs-down list-inline-item"><a href="/users/<%=current_user.id%>"><%=current_user.full_name%></a></li>
-                        <li class="hidden-xs-down list-inline-item"><a href="/logout">Logout</a></li>
+                        <li class="list-inline-item"><a href="/users/<%=current_user.id%>" class="hover-color list-inline-item"><%=current_user.full_name%></a></li>
+                        <li class="list-inline-item"><a href="/logout">Logout</a></li>
                       <%else%>
-                        <li class="hidden-xs-down list-inline-item"><a href="/users/new" class="hover-color">Create an account?</a></li>
-                        <li class="list-inline-item"><a href="/sessions/new" class="hover-color list-inline-item"><i class="ion-android-lock"></i> Login</a></li>
+                        <li class="list-inline-item"><a href="/users/new" class="hover-color list-inline-item">Create an account?</a></li>
+                        <li class="list-inline-item"><a href="/sessions/new" class="hover-color list-inline-item"> Login</a></li>
                       <%end%>
                         <!-- <li class="dropdown list-inline-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle hover-color" aria-expanded="false"> Eng.</a>
                             <ul class="dropdown-menu dropdown-menu-right lang-dropdown">
